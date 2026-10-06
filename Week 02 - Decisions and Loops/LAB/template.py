@@ -1,16 +1,5 @@
-"""
-RECORD CHECK  -  my version
-===========================
 
-Name  :
-Lane  :  AI / Cyber / IT      (delete two)
-Date  :
 
-Run it:   python template.py
-
-Work through the numbered sections in order. Each one tells you what it must do.
-Delete these instructions as you replace them with your code.
-"""
 
 # ==================================================================== INPUT
 # 1. Ask for your three values.
@@ -19,23 +8,29 @@ Delete these instructions as you replace them with your code.
 #    - the second is a NUMBER (use float(), not int())
 #    - the third  is a NUMBER (use float(), not int())
 
-label = ""      # replace with an input() call
-value = 0.0     # replace with an input() call, converted with float()
-limit = 0.0     # replace with an input() call, converted with float()
+label = input("Enter the label: ")      # replace with an input() call
+value = float(input("Enter the value: "))     # replace with an input() call, converted with float()
+limit = float(input("Enter the limit: "))     # replace with an input() call, converted with float()
 
 
 # ================================================================== PROCESS
 # 2. Work out the difference and the percentage.       [Typical and above]
 
-difference = 0.0   # replace with your calculation
-percent = 0.0       # replace with your calculation
+difference = value - limit   # replace with your calculation
+percent = (difference / limit) * 100 # replace with your calculation
 # 3. Decide a status and store it in a variable called status.
 #
 #    Threshold : if / else        -> "OVER LIMIT" or "OK"
 #    Typical   : if / elif / else -> "OVER LIMIT" (100% or more),
 #                                     "WARNING" (90% or more), otherwise "OK"
 
-status = ""   # replace with your if / else (or if / elif / else)
+status = percent
+if status >= 100:
+    print("OVER LIMIT")
+elif status >= 90:
+    print("WARNING")
+else:
+    print("OK")
 
 
 # =================================================================== OUTPUT
@@ -53,7 +48,11 @@ print("=" * 34)
 print(f"  RECORD CHECK  -  {label}")
 print("=" * 34)
 
-# your report lines go here
+print(f"  Value:      {value:>10.2f}")
+print(f"  Limit:      {limit:>10.2f}")
+print(f"  Difference: {difference:>10.2f}")
+print(f"  Percent:    {percent:>10.2f}%")
+print(f"  Status:     {status:>10}")
 
 print("=" * 34)
 
